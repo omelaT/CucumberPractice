@@ -17,9 +17,11 @@ public class ProviderForDriver {
     public static final ProviderForDriver INSTANCE = new ProviderForDriver();
     private ThreadLocal<WebDriver> DRIVER = new ThreadLocal<WebDriver>();
 
-    private ProviderForDriver(){}
+    private ProviderForDriver() {
+    }
 
-    public WebDriver getDriver(){
+
+    public WebDriver getDriver() {
         if (DRIVER.get() == null) {
             String browserType = loadProperties().getProperty("browserType");
             DRIVER.set(DriverFactory.createDriver(BrowserType.valueOf(browserType)));
@@ -33,7 +35,7 @@ public class ProviderForDriver {
     }
 
 
-    public static Properties loadProperties(){
+    public static Properties loadProperties() {
         String current = System.getProperty("user.dir");
         String separator = System.getProperty("file.separator");
         String resourcesFolder = "src" + separator + "main" + separator + "resources";

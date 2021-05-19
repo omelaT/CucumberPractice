@@ -6,11 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class GummyProductsPage  extends AbstractPage{
+public class GummyProductsPage extends AbstractPage {
     public GummyProductsPage() {
         super();
         waitForLoadableElement();
     }
+
     @Override
     public void waitForLoadableElement() {
     }
@@ -24,53 +25,44 @@ public class GummyProductsPage  extends AbstractPage{
     @FindBy(css = "[data-name=\"Hair Care Panda Vegan Gummies\"]")
     private static WebElement byeButton;
 
-    @FindBy(css ="[a.top-bag]")
+    @FindBy(css = "[a.top-bag]")
     private static WebElement buscket;
 
-    @FindBy(css ="[alt=\"Hair Care Panda Vegan Gummies\"]")
+    @FindBy(css = "[alt=\"Hair Care Panda Vegan Gummies\"]")
     private static WebElement scroll;
 
-    public  void cookieClick(){
+    public void cookieClick() {
         cookieClick.click();
     }
-    public WebElement hoverelement(){
-      return  hover;
-    }
-    public void clickByButn(){
-        byeButton.click();
-      //  return new BuscketPage();
+
+    public WebElement hoverelement() {
+        return hover;
     }
 
-    public BuscketPage clickOnBuscket(){
+    public void clickByButn() {
+        byeButton.click();
+
+    }
+
+    public BuscketPage clickOnBuscket() {
         buscket.click();
         return new BuscketPage();
     }
-    @FindBy(css ="[class=\"btn btn-primary btn-rounded-smaller no-animation\"]")
+
+    @FindBy(css = "[class=\"btn btn-primary btn-rounded-smaller no-animation\"]")
     private static WebElement windowBuscketElement;
 
-  //  class="btn btn-primary btn-rounded-smaller no-animation"
-    public BuscketPage windowBuscket(){
-       windowBuscketElement.click();
+    //  class="btn btn-primary btn-rounded-smaller no-animation"
+    public BuscketPage windowBuscketClick() {
+        windowBuscketElement.click();
         return new BuscketPage();
     }
-/*
-    public void   scroleToElenent() {
-        ((JavascriptExecutor) ProviderForDriver.INSTANCE.getDriver())
-        .executeScript("arguments[0].scrollIntoView(true);", byeButton);
-    }
 
- */
-    public void alert(){
-        Alert alert = ProviderForDriver.INSTANCE.getDriver().switchTo().alert();
-        alert.accept();
-    }
 
-    public void clickBuscket(){
+    public void clickBuscket() {
         buscket.click();
-       // return  new BuscketPage();
+
     }
-
-
 
 
 }
