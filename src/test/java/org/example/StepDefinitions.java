@@ -8,7 +8,7 @@ import org.junit.Assert;
 import pages.BuscketPage;
 import pages.GummyProductsPage;
 import pages.MainHaircarepandaPage;
-import pages.ProviderForDriver;
+
 
 
 public class StepDefinitions {
@@ -49,7 +49,7 @@ public class StepDefinitions {
         Thread.sleep(3000);
        // buscketPage.waitForLoadableElement();
         gummyProductsPage.windowBuscketClick();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
     }
 
@@ -57,11 +57,10 @@ public class StepDefinitions {
     public void the_basket_page_is_displayed_with_selected_previously_product() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         buscketPage = new BuscketPage();
-        Thread.sleep(5000);
-      //  buscketPage.waitForLoadableElement();
+        Thread.sleep(3000);
+     ;
         buscketPage.itemInBuscket();
-        Thread.sleep(5000);
-      // Assert.assertTrue( buscketPage.itemInBuscket().contains("Hair Care Panda Vegan Gummies") )
+        Thread.sleep(3000);
 
         Assert.assertTrue(buscketPage.itemInBuscket());
     }
@@ -79,7 +78,6 @@ public void i_add_product_to_basket() throws InterruptedException {
 
     gummyProductsPage.clickByButn();
     Thread.sleep(3000);
-    // buscketPage.waitForLoadableElement();
 
 
 }
@@ -89,23 +87,23 @@ public void i_add_product_to_basket() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
         gummyProductsPage.windowBuscketClick();
         buscketPage = new BuscketPage();
-        Thread.sleep(5000);
-        //  buscketPage.waitForLoadableElement();
+        Thread.sleep(3000);
         buscketPage.itemInBuscket();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
     }
     @When("I tap on “delete” icon near product name")
     public void i_tap_on_delete_icon_near_product_name() throws InterruptedException {
         // Write code here that turns the phrase above into concrete actions
-      //  Assert.assertTrue( buscketPage.visibleDeleteButton());
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         buscketPage.visibleDeleteButton();
+        System.out.println(("delete btn visible"));
         Thread.sleep(5000);
         buscketPage.clickOnDeleteButton();
+        System.out.println("click on delete");
         Thread.sleep(3000);
         buscketPage.alert();
-
+        Thread.sleep(3000);
 
     }
     @Then("the message “Your shopping cart is empty An empty basket is a sad basket” is displayed")
@@ -130,14 +128,14 @@ public void i_add_product_to_basket() throws InterruptedException {
 
         gummyProductsPage.windowBuscketClick();
         buscketPage = new BuscketPage();
-        Thread.sleep(5000);
-        //  buscketPage.waitForLoadableElement();
+        Thread.sleep(3000);
+
         buscketPage.itemInBuscket();
         Thread.sleep(5000);
 
         //add one more
         buscketPage.clickOnPlusButton();
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
     }
 
@@ -152,6 +150,7 @@ public void i_add_product_to_basket() throws InterruptedException {
     @Then("the price is calculated correctly")
     public void the_price_is_calculated_correctly() {
         // Write code here that turns the phrase above into concrete actions
+        Assert.assertTrue(buscketPage.increaseValue().contains("2"));
 
     }
 
